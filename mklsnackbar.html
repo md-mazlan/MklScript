@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Snackbar Class Demo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Basic styling for the page and buttons */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 15px;
+            gap: 15px; /* Adds space between buttons */
+        }
+
+        .trigger-btn {
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 500;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        /* Specific button styles */
+        .default-btn {
+            background-color: #6c757d;
+            box-shadow: 0 4px 12px rgba(108, 117, 125, 0.3);
+        }
+        .default-btn:hover {
+            background-color: #5a6268;
+        }
+
+        .success-btn {
+            background-color: #28a745;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+        }
+        .success-btn:hover {
+            background-color: #218838;
+        }
+
+        .error-btn {
+            background-color: #dc3545;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+        }
+        .error-btn:hover {
+            background-color: #c82333;
+        }
+        
+        .custom-btn {
+            background-color: #663399; /* rebeccapurple */
+            box-shadow: 0 4px 12px rgba(102, 51, 153, 0.3);
+        }
+        .custom-btn:hover {
+            background-color: #562d7d;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Buttons to trigger the snackbar using the new logic -->
+    <button class="trigger-btn default-btn" onclick="snackbar.show({ message: 'This is a default message.', type: 'default' });">Show by Type (Default)</button>
+    <button class="trigger-btn success-btn" onclick="snackbar.show({ message: 'Operation was successful!', type: 'success' });">Show by Type (Success)</button>
+    <button class="trigger-btn error-btn" onclick="snackbar.show({ message: 'An error occurred!', type: 'error' });">Show by Type (Error)</button>
+    <button class="trigger-btn custom-btn" onclick="snackbar.show({ message: 'This background overrides the type!', background: 'rebeccapurple' });">Show by Background (Override)</button>
+
+    <script src="mklsnackbar.js" type="text/javascript"></script>
+    <script>
+        
+        // Create a single instance of the Snackbar to be used across the page
+        const snackbar = new MklSnackbar({ message: 'This is the default message.' });
+    </script>
+
+</body>
+</html>

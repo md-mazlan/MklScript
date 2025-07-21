@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Lab Sign Up</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0d47a1;
+            /* Dark blue background */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        /* Main Container */
+        .container {
+            display: flex;
+            width: 100%;
+            max-width: 1100px;
+            background-color: #0d47a1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        /* Left Info Panel */
+        .info-panel {
+            background-color: #1976d2;
+            /* Slightly lighter blue */
+            color: white;
+            padding: 40px;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 40px;
+            /* Simple background dots for effect */
+            background-image: radial-gradient(circle at 25px 25px, rgba(255, 255, 255, 0.05) 2%, transparent 0%),
+                radial-gradient(circle at 75px 75px, rgba(255, 255, 255, 0.05) 2%, transparent 0%);
+            background-size: 100px 100px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .info-item .icon {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .info-item h3 {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        /* Right Form Container */
+        .form-container {
+            background-color: white;
+            padding: 50px;
+            width: 60%;
+        }
+
+        .form-container h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .form-container h1 strong {
+            display: block;
+            font-weight: 600;
+            color: #000;
+            font-size: 2rem;
+            margin-top: 5px;
+        }
+
+        /* Form row for side-by-side inputs */
+        .form-row {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .form-group {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f7f7f7;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #1976d2;
+            box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.2);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+
+        .form-checkbox input {
+            width: auto;
+        }
+
+        .form-checkbox a {
+            color: #1976d2;
+            text-decoration: none;
+        }
+
+        .form-checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #1565c0;
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .info-panel,
+            .form-container {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+                /* Remove gap when stacked */
+            }
+
+            body {
+                padding: 1rem;
+            }
+
+            .form-container {
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="info-panel">
+            <div class="info-item">
+                <div class="icon"><i class="fa-solid fa-building-columns"></i></div>
+                <div>
+                    <h3>Eiusmod tempor</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore.</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="icon"><i class="fa-solid fa-microscope"></i></div>
+                <div>
+                    <h3>Natus error sit</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore.</p>
+                </div>
+            </div>
+            <div class="info-item">
+                <div class="icon"><i class="fa-solid fa-file-invoice"></i></div>
+                <div>
+                    <h3>Dignissimos ducimus</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                        labore.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form id="lab-signup-form" action="submitform.php" method="POST">
+                <h1>Sign up as <strong>Diagnostic Lab</strong></h1>
+
+                <div class="form-group">
+                    <label for="lab-name">Lab name</label>
+                    <input type="text" name="lab-name" placeholder="Enter you laboratory name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="your-name">Your Name</label>
+                        <input type="text" name="your-name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="your-role">Your role</label>
+                        <input type="text" name="your-role" placeholder="Enter your role in the lab" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="pathology-reports">Daily pathology reports</label>
+                        <input type="number" name="pathology-reports" placeholder="Number of reports">
+                    </div>
+                    <div class="form-group">
+                        <label for="radiology-reports">Daily radiology reports</label>
+                        <input type="number" name="radiology-reports" placeholder="Number of reports">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile-number">Mobile Number</label>
+                    <input type="tel" name="mobile-number" placeholder="Enter your mobile number">
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" placeholder="Enter lab address">
+                </div>
+
+                <div class="form-checkbox">
+                    <input type="checkbox" name="terms" required>
+                    <label for="terms">I agree with all <a href="#">Terms and Conditions</a> and <a href="#">Privacy
+                            Policies</a> of evolko.</label>
+                </div>
+
+                <button type="submit" class="submit-btn">Sign Up</button>
+            </form>
+        </div>
+    </div>
+    <script src="mklform.js"></script>
+    <script src="mklsnackbar.js"></script>
+    <script>
+        var mklForm = new MklForm(document.getElementById('lab-signup-form'));
+        var mklsnackbar = new MklSnackbar();
+        mklForm.setSubmitFunction(() => {
+            console.log("OnLoad");
+        }, (res) => {
+            if (res.success) {
+                mklsnackbar.show({
+                    message: "Form submitted successfully! " + (res.responseText ?? "-"),
+                    type: "success"
+                });
+            } else {
+                mklsnackbar.show({
+                    message: "Error: " + res.error,
+                    type: "error"
+                });
+            }
+        });
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MklLoadingController Demo</title>
+    <style>
+        /* Basic styles for the page (not part of the loader) */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Button styles for the demo */
+        .demo-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .demo-button:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
+
+        .demo-button:active {
+            transform: translateY(0);
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        p {
+            text-align: center;
+            max-width: 400px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap">
+</head>
+<body>
+
+    <h1>MklLoadingController Demo</h1>
+    <p>Click the buttons to show or hide the loading spinner.</p>
+    
+    <div>
+        <button id="showLoaderBtn" class="demo-button">Show Loader</button>
+        <button id="hideLoaderBtn" class="demo-button">Hide Loader</button>
+    </div>
+
+    <script src="mkl-loading-controller.js"></script>
+    <script>
+        
+
+        // --- DEMO ---
+
+        // 1. Instantiate the loading controller
+        const loadingController = new MklLoadingController();
+
+        // 2. Get button elements
+        const showBtn = document.getElementById('showLoaderBtn');
+        const hideBtn = document.getElementById('hideLoaderBtn');
+
+        // 3. Add event listeners to demonstrate functionality
+        showBtn.addEventListener('click', () => {
+            console.log("Showing loader for 2 seconds...");
+            loadingController.showFor(2000);
+        });
+        
+        hideBtn.addEventListener('click', () => {
+            console.log("Hiding loader manually...");
+            loadingController.hide();
+        });
+
+    </script>
+</body>
+</html>

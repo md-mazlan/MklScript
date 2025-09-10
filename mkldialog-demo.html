@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MklDialog Demo</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #f0f2f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+    .demo-btn {
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .demo-btn:hover {
+      background: #0056b3;
+    }
+    #result {
+      margin-top: 30px;
+      font-size: 1.1rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h2>MklDialog Demo</h2>
+  <button class="demo-btn" onclick="showAlert()">Show Alert</button>
+  <button class="demo-btn" onclick="showConfirm()">Show Confirm</button>
+  <div id="result"></div>
+
+  <script src="mkldialog.js"></script>
+  <script>
+    const dialog = new MklDialog();
+    function showAlert() {
+      dialog.alert('This is a custom alert!').then(() => {
+        document.getElementById('result').textContent = 'Alert closed!';
+      });
+    }
+    function showConfirm() {
+      dialog.confirm('Are you sure?').then(result => {
+        document.getElementById('result').textContent = result ? 'Confirmed!' : 'Cancelled!';
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MklLoadingController Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .demo-btn {
+            background: #007bff;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .demo-btn:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>MklLoadingController Demo</h2>
+    <button class="demo-btn" onclick="loader.showFor(2000)">Show Loader for 2 Seconds</button>
+    <button class="demo-btn" onclick="loader.show()">Show Loader (Manual)</button>
+    <button class="demo-btn" onclick="loader.hide()">Hide Loader</button>
+
+    <script src="mkl-loading-controller-lib.js"></script>
+    <script>
+        // Create an instance of the loading controller
+        const loader = new MklLoadingController();
+    </script>
+</body>
+</html>
